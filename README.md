@@ -1,97 +1,47 @@
-# SE2031 Practical 2 - Student Management System
+# Student Management System — Practical 02
 
-## Repository Context
-This repository is for **SE2031 Java Programming - Practical 2**.
+Java coursework exploring classes, package organization, student enrollment, searching, sorting, and JavaDoc.
 
-The assignment focuses on building and evolving a **Student Management System** while practicing:
-- Java classes and object-oriented design
-- Package organization (`models`, `services`, `mainapp`)
-- Control structures (`switch`, loops)
-- Array-based sorting and searching
-- JavaDoc documentation generation
+## Repository guide
 
-Core classes expected by the practical:
-- `Student` (student id and name)
-- `Course` (course code and title)
-- `Main` (menu, input handling, program flow)
-- `EnrollmentManager` (after package refactor)
+| Folder | Contents |
+| --- | --- |
+| [Part1-NoPackages/](Part1-NoPackages/) | Introductory version with `Student`, `Course`, and `Main` in the default package |
+| [StudentManagement-IT25102811/](StudentManagement-IT25102811/) | Packaged application and its documentation |
+| [StudentManagement-IT25102811/docs/](StudentManagement-IT25102811/docs/) | Generated JavaDoc reference |
 
-## Suggested Project Structures
+The packaged application separates data models (`models`), enrollment operations (`services`), and the console entry point (`mainapp`).
 
-### Part 1 (No packages)
+## Requirements
 
-```text
-StudentManagement/
-|-- Student.java
-|-- Course.java
-`-- Main.java
+JDK 17+ or the Java version required by your module. Verify `java -version` and `javac -version` before building.
+
+## Build and run
+
+Run from the repository root. Each version uses a separate output directory.
+
+### Introductory version
+
+```sh
+javac -d build/part1 Part1-NoPackages/Student.java Part1-NoPackages/Course.java Part1-NoPackages/Main.java
+java -cp build/part1 Main
 ```
 
-### Part 2+ (With packages)
+### Packaged version
 
-```text
-StudentManagement/
-|-- models/
-|   |-- Student.java
-|   `-- Course.java
-|-- services/
-|   `-- EnrollmentManager.java
-`-- mainapp/
-    `-- Main.java
+```sh
+javac -d build/part2 StudentManagement-IT25102811/models/Student.java StudentManagement-IT25102811/models/Course.java StudentManagement-IT25102811/services/EnrollmentManager.java StudentManagement-IT25102811/mainapp/Main.java
+java -cp build/part2 mainapp.Main
 ```
 
-## Prerequisites
-- JDK 17+ (or your module-required Java version)
-- Command prompt/terminal
+## Generate JavaDoc
 
-Check installation:
-
-```bash
-java -version
-javac -version
+```sh
+javadoc -d build/javadoc StudentManagement-IT25102811/models/Student.java StudentManagement-IT25102811/models/Course.java StudentManagement-IT25102811/services/EnrollmentManager.java StudentManagement-IT25102811/mainapp/Main.java
 ```
 
-## How to Compile and Run
+Open `build/javadoc/index.html` in a browser. Existing committed JavaDoc is preserved in the application’s `docs/` folder.
 
-### Option A: Part 1 (without packages)
-Run these commands from the folder containing `Main.java`:
+## Coursework context
 
-```bash
-javac Student.java Course.java Main.java
-java Main
-```
-
-### Option B: Part 2+ (with packages)
-Run these commands from the project root (`StudentManagement/`):
-
-```bash
-javac models/*.java services/*.java mainapp/Main.java
-java mainapp.Main
-```
-
-## JavaDoc Generation
-After adding JavaDoc comments to all public classes and methods:
-
-```bash
-javadoc -d docs models/*.java services/*.java
-```
-
-Then open:
-- `docs/index.html`
-
-## Functional Expectations
-Your final program should support:
-- Adding/enrolling students through a menu
-- Listing students
-- Searching student by ID (linear search)
-- Sorting students by name (for example, bubble sort)
-- Exit option
-
-## Submission Checklist
-- [ ] Initial multi-class version completed
-- [ ] Refactored into packages
-- [ ] Menu implemented with `switch` and loops
-- [ ] Array-based searching and sorting added
-- [ ] JavaDoc comments written for public APIs
-- [ ] JavaDoc HTML generated
-- [ ] Repository includes this `README.md` with run instructions
+This repository is a fork of the SLIIT practical repository. Its original repository name is retained for coursework traceability.
